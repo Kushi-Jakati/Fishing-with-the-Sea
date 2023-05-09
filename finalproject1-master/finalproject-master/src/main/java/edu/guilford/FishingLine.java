@@ -20,8 +20,8 @@ public class FishingLine extends GraphicalObjects {
         super();
         xPosition = 339;
         yPosition = 183;
-        endingX = 320;
-        endingY = 300;
+        endingX = 320;// 339
+        endingY = 300; // 650
         line = new Line(xPosition, yPosition, endingX, endingY);
         // set line color
         line.setStrokeWidth(2);
@@ -60,6 +60,7 @@ public class FishingLine extends GraphicalObjects {
         ;
     }
 
+    // TransitionlineUpward method
     public void transitionLineUpward() {
         lineTransition = new Timeline();
         lineTransition.getKeyFrames()
@@ -70,10 +71,7 @@ public class FishingLine extends GraphicalObjects {
         lineTransition.play();
     }
 
-    // moving line back and forth to catch fish with it being attached to the boat
-    // means having the line starting point connected to the pixel of the fishing
-    // rod, end point being with the slope of the line
-
+    // transitionLineDownward method
     public void transitionLineDownward() {
         // add a circle to the end of the line
         Circle circle = new Circle(317, 827, 5);
