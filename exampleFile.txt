@@ -1,0 +1,2 @@
+Username: exampleFile
+Score: 100
