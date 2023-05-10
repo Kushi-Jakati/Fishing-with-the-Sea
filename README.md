@@ -1,3 +1,2 @@
 # finalproject
-
-#Fishing Game by Sarah, Kushi, and Connor
+Fishing Game by Sarah, Kushi, and Connor
