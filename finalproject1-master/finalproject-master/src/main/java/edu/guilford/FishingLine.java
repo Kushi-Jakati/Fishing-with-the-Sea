@@ -8,6 +8,15 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.util.Duration;
 
+/**
+ * FishingLine class is a subclass of GraphicalObjects and is used to create a
+ * line that is used in the fishing game
+ * @param endingX is the ending x position of the line
+ * @param endingY is the ending y position of the line
+ * @param line is the line object
+ * @param lineTransition is the transition of the line
+ * @param circleTransition is the transition of the circle, following the line
+ */
 public class FishingLine extends GraphicalObjects {
     int endingX;
     int endingY;
@@ -15,7 +24,10 @@ public class FishingLine extends GraphicalObjects {
     Timeline lineTransition;
     Timeline circleTransition;
 
-    // constructor
+    /**
+     * FishingLine constructor that sets the x and y positions of the line and the
+     * ending x and y positions of the line
+     */
     public FishingLine() {
         super();
         xPosition = 339;
@@ -29,7 +41,7 @@ public class FishingLine extends GraphicalObjects {
 
     }
 
-    // getters and setters
+    /** Getters and Setters */
     public int getEndingX() {
         return endingX;
     }
@@ -54,13 +66,13 @@ public class FishingLine extends GraphicalObjects {
         this.line = line;
     }
 
-    // transition method inherited from GraphicalObjects
+    /** Transition method that is inherited from GraphicalObjects */
     @Override
     public void transition(ImageView image) {
         ;
     }
 
-    // TransitionlineUpward method
+    /** TransitionlineUpward method that moves the line up the screen */
     public void transitionLineUpward() {
         lineTransition = new Timeline();
         lineTransition.getKeyFrames()
@@ -71,9 +83,9 @@ public class FishingLine extends GraphicalObjects {
         lineTransition.play();
     }
 
-    // transitionLineDownward method
+    /** TransitionLineDownward method that moves the line down the screen */
     public void transitionLineDownward() {
-        // add a circle to the end of the line
+        /** Add a circle to the end of the line **/
         Circle circle = new Circle(317, 827, 5);
         lineTransition = new Timeline();
         lineTransition.getKeyFrames()
@@ -81,7 +93,7 @@ public class FishingLine extends GraphicalObjects {
                         new KeyValue(line.endXProperty(), 317),
                         new KeyValue(line.endYProperty(), 827)));
 
-        // have the circle follow the line
+        /** Circle that follows the line */
         lineTransition.getKeyFrames()
                 .add(new KeyFrame(Duration.seconds(7),
                         new KeyValue(circle.centerXProperty(), 339),

@@ -6,6 +6,12 @@ import javafx.animation.Animation;
 import javafx.animation.TranslateTransition;
 import javafx.scene.image.ImageView;
 
+/**
+ * This class is for the fisherman object. It extends the GraphicalObjects class
+ * and implements the Transitionable interface.
+ * @param image is the image of the fisherman
+ * @param transition is the transition of the fisherman (however, we never used it, it was a bonus feature to have the fisherman move across the screen, but time did not allow it)
+ */
 public class Fisherman extends GraphicalObjects {
     private ImageView image;
     private TranslateTransition transition;
@@ -15,17 +21,19 @@ public class Fisherman extends GraphicalObjects {
         this.transition = transition;
     }
 
-    // constructor that remains the same for the fisherman
+    /**
+     * Constructor that sets the location of the fisherman object, and adds the
+     * image
+     */
     public Fisherman() {
         super();
         xPosition = 325;
         yPosition = 165;
         image = new ImageView(
                 new File(FishingPane.class.getResource("fisherman.png").getPath()).toURI().toString());
-        // remember to add the image to the pane
     }
 
-    // getters and setters
+    /** Getters and setters for the fisherman object */
     public ImageView getImage() {
         return image;
     }
@@ -42,7 +50,6 @@ public class Fisherman extends GraphicalObjects {
         this.transition = transition;
     }
 
-    // get the x and y positions of the fisherman
     public int getXPosition() {
         return xPosition;
     }
@@ -51,18 +58,12 @@ public class Fisherman extends GraphicalObjects {
         return yPosition;
     }
 
-    // method for transitioning the fisherman
+    /** Method transition that could be used to move the fisherman object */
     @Override
     public void transition(ImageView image) {
-        transition = new TranslateTransition();
-        transition.setNode(image);
-        transition.setDuration(javafx.util.Duration.seconds(1));
-        transition.setCycleCount(Animation.INDEFINITE);
-        transition.setAutoReverse(false);
-        transition.play();
     }
 
-    // method for setting the position of the fisherman
+    /** Transition method that is inherited from the GraphicalObjects superclass */
     public void setPosition(int x, int y) {
         image.setX(x);
         image.setY(y);
